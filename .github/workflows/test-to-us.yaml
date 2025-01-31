@@ -1,0 +1,26 @@
+name: Sync main to test-us(united state)
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions
+
+permissions:
+  contents: write
+
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Sync `main` with `test-us`
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout test-us
+          git merge origin/main
+          git push origin test-us
