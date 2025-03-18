@@ -20,7 +20,7 @@ jobs:
 
       - name: Sync `main` with `test-us`
         run: |
-          echo "AWS Access Key ID is set: ${{ secrets.VIZIO_AWS_ACCESS_KEY != '' }}"
+          echo "AWS Access Key ID is set: ${{ secrets.VIZIO_AWS_ACCESS_KEY' }}"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout test-ca
