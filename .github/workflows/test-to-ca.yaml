@@ -10,6 +10,7 @@ permissions:
 jobs:
   sync-branches:
     runs-on: ubuntu-latest
+    environment: "new env name"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
